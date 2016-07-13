@@ -31,7 +31,7 @@ public class SynchronizedButtonsGrid extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("LogInFormFXML.fxml"));
-
+        
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("StyleSheet.css").toExternalForm());
         stage.setScene(scene);

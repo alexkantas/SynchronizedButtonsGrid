@@ -17,11 +17,12 @@
 package synchronizedbuttonsgrid;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -31,17 +32,25 @@ import javafx.stage.Stage;
  *
  * @author Alexandros Kantas
  */
-public class LogInFormFXMLController {
+public class LogInFormFXMLController implements Initializable {
+
+    
 
     @FXML
-    private void handleButtonAction(ActionEvent event) throws IOException{
+    private void handleButtonAction(ActionEvent event) throws IOException {
         //Get the stage
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
+        
+        
+        
         //Change the scene in the stage by creating a new scene based in GridSizeForm.fxml
         Parent root = FXMLLoader.load(getClass().getResource("GridSizeFormFXML.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
     }
 
 }

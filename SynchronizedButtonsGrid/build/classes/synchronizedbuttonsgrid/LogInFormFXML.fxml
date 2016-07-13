@@ -20,11 +20,11 @@
         </AnchorPane>
         <GridPane hgap="5.0" vgap="25.0" VBox.vgrow="SOMETIMES">
             <children>
-                <Label id="usernamelabel" text="Username" GridPane.rowIndex="1" />
+                <Label fx:id="usernamelabel" text="Username" GridPane.rowIndex="1" />
                 <Label id="passwordlabel" text="Password" GridPane.rowIndex="2" />
                 <TextField id="usernametxt" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
                 <TextField id="passwordtxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Button id="loginbtn" onAction="#handleButtonAction" text="Log In" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                <Button fx:id="loginbtn" onAction="#handleButtonAction" text="Log In" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
             </children>
             <VBox.margin>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
