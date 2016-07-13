@@ -16,11 +16,34 @@
  */
 package synchronizedbuttonsgrid;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+
 /**
  * FXML Controller class
  *
  * @author Alexandros Kantas
  */
-public class GridSizeFormFXMLController {
-
+public class GridSizeFormFXMLController implements Initializable{
+    
+    @FXML
+    Button crtbtn;
+    
+    @FXML
+    VBox vbox;
+    
+    int i;
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        crtbtn.setOnAction(e->{
+            vbox.getChildren().add(new Button(""+i));
+            i++;
+        });
+        
+    }
 }
