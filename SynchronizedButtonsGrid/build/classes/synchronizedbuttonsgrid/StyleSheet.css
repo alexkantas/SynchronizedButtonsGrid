@@ -24,15 +24,36 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     -fx-font-size:15px;
 }
 
-.label{
+.label,.button{
     -fx-text-fill: white;
 }
 
+.button{
+    -fx-background-color: #41341C;
+    -fx-background-radius: 25;
+    -fx-font-weight: bold; 
+}
 
-#loginbtn,#loginlabel{
+
+#loginlabel{
     -fx-font-weight: bold;  
 }
 
 #loginlabel{
     -fx-font-size:20px;
+}
+
+#errorlabel{
+    -fx-text-fill: red;
+    -fx-font-style: italic;
+    -fx-font-size: 10px;
+}
+
+#plusbtn{
+    -fx-background-radius: 100;
+    -fx-font-size:20px;
+}
+
+.gridbtn{
+    -fx-background-color: #85765A;
 }

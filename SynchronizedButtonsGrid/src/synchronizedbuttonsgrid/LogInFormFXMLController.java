@@ -26,6 +26,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -34,23 +37,44 @@ import javafx.stage.Stage;
  */
 public class LogInFormFXMLController implements Initializable {
 
+    @FXML
+    private Label errorlabel;
     
-
+    @FXML
+    private Button regbtn;
+    
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
         //Get the stage
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        
-        
-        
+
         //Change the scene in the stage by creating a new scene based in GridSizeForm.fxml
-        Parent root = FXMLLoader.load(getClass().getResource("GridSizeFormFXML.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SelectGridFormFXML.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
+    }
+    
+    @FXML
+    private void loadRegisterForm(ActionEvent event) throws IOException {
+        //Get the stage
+        Stage regStage = new Stage();
+        
+        
+
+        //Change the scene in the stage by creating a new scene based in GridSizeForm.fxml
+        Parent root = FXMLLoader.load(getClass().getResource("RegisterFormFXML.fxml"));
+        regStage.initModality(Modality.APPLICATION_MODAL);
+        regStage.setTitle("Register");
+        Scene scene = new Scene(root);
+        regStage.setScene(scene);
+        regStage.show();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+//        regbtn.setOnAction(e->{
+//            errorlabel.setText("Wrong username or/and password!" );
+//        });
     }
 
 }

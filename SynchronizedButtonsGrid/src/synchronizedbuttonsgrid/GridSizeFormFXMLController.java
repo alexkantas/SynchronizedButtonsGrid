@@ -16,34 +16,43 @@
  */
 package synchronizedbuttonsgrid;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author Alexandros Kantas
  */
-public class GridSizeFormFXMLController implements Initializable{
-    
+public class GridSizeFormFXMLController implements Initializable {
+
     @FXML
-    Button crtbtn;
-    
+    Button crtbtn, bckbtn;
+
     @FXML
-    VBox vbox;
-    
-    int i;
-    
+    private void handleButtonAction(ActionEvent event) throws IOException {
+        //Get the stage
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        //
+        Parent root = FXMLLoader.load(getClass().getResource("LogInFormFXML.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("StyleSheet.css").toExternalForm());
+        stage.setScene(scene);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        crtbtn.setOnAction(e->{
-            vbox.getChildren().add(new Button(""+i));
-            i++;
-        });
-        
+
     }
 }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="root" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="synchronizedbuttonsgrid.RegisterFormFXMLController">
+    <children>
+
+        <AnchorPane prefHeight="56.0" prefWidth="228.0">
+            <children>
+                <Label id="loginlabel" alignment="CENTER" prefHeight="78.0" prefWidth="228.0" text="Register" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </children>
+        </AnchorPane>
+        <Label fx:id="errorlabel">
+            <VBox.margin>
+                <Insets left="10.0" />
+            </VBox.margin>
+        </Label>
+        <GridPane hgap="5.0" vgap="25.0" VBox.vgrow="SOMETIMES">
+            <children>
+                <Label fx:id="usernamelabel" text="Username" GridPane.rowIndex="1" />
+                <Label id="passwordlabel" text="Password" GridPane.rowIndex="2" />
+                <TextField fx:id="usernamefield" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                <PasswordField fx:id="passwordfield" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label fx:id="qnlbl" GridPane.rowIndex="3" />
+                <TextField fx:id="qntxt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <HBox alignment="TOP_RIGHT" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                    <children>
+                        <Button fx:id="cnlbtn" mnemonicParsing="false" text="Cancel" />
+                        <Button fx:id="regbtn" onAction="#RegAction" text="Register" />
+                    </children>
+                </HBox>
+            </children>
+            <VBox.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+            </VBox.margin>
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                <RowConstraints />
+            </rowConstraints>
+        </GridPane>
+    </children>
+</VBox>
