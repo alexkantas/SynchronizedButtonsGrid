@@ -18,21 +18,28 @@
                 <Label id="loginlabel" alignment="CENTER" prefHeight="78.0" prefWidth="228.0" text="Grid Dimensions" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             </children>
         </AnchorPane>
+      <Label fx:id="errorlabel" />
         <GridPane hgap="15.0" vgap="25.0" VBox.vgrow="SOMETIMES">
             <children>
                 <Label id="usernamelabel" text="Rows" GridPane.rowIndex="1" />
                 <Label id="passwordlabel" text="Columns" GridPane.rowIndex="2" />
-                <TextField id="usernametxt" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                <TextField id="usernametxt" fx:id="rowfield" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="15.0" />
                </GridPane.margin></TextField>
-                <TextField id="passwordtxt" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <TextField id="passwordtxt" fx:id="colfield" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <GridPane.margin>
                         <Insets right="15.0" />
                     </GridPane.margin>
                 </TextField>
-                <Button fx:id="crtbtn" text="Create" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-            <Button fx:id="bckbtn" onAction="#handleButtonAction" text="Back" GridPane.rowIndex="3" />
+                <Button fx:id="crtbtn" onAction="#loadGrid" text="Create" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+            <Button fx:id="bckbtn" onAction="#handleButtonAction" text="Back" GridPane.rowIndex="4" />
+            <Label text="Grid Name" GridPane.rowIndex="3" />
+            <TextField fx:id="namefield" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets right="15.0" />
+               </GridPane.margin>
+            </TextField>
             </children>
             <VBox.margin>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -45,6 +52,7 @@
                 <RowConstraints />
                 <RowConstraints />
                 <RowConstraints />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
                 <RowConstraints />
             </rowConstraints>
         </GridPane>

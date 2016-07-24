@@ -27,6 +27,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -37,7 +39,17 @@ import javafx.stage.Stage;
 public class GridSizeFormFXMLController implements Initializable {
 
     @FXML
-    Button crtbtn, bckbtn;
+    private Button crtbtn, bckbtn;
+
+    @FXML
+    private TextField rowfield, colfield, namefield;
+
+    @FXML
+    private Label errorlabel;
+
+    private int Rows, Columns;
+
+    private String name;
 
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
@@ -49,6 +61,26 @@ public class GridSizeFormFXMLController implements Initializable {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("StyleSheet.css").toExternalForm());
         stage.setScene(scene);
+    }
+
+    @FXML
+    private void loadGrid() {
+        try {
+            Rows = Integer.parseInt(rowfield.getText().trim());
+            Columns = Integer.parseInt(colfield.getText().trim());
+            if(namefield.getText().isEmpty()){
+                throw new IllegalArgumentException();
+            }
+        } catch (NumberFormatException e) {
+            errorlabel.setText("Wrong input, your input in grid dimensions is not a validnumber");
+            return;
+        } catch (IllegalArgumentException e) {
+            errorlabel.setText("Wrong name, the field is empty");
+        } finally {
+            name=namefield.getText();
+        }
+        
+        new InteractiveGrid(Rows, Columns, name);
     }
 
     @Override

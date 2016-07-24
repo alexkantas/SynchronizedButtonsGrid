@@ -60,6 +60,7 @@ public class LogInFormFXMLController implements Initializable {
         Stage regStage = new Stage();
         
         
+        
 
         //Change the scene in the stage by creating a new scene based in GridSizeForm.fxml
         Parent root = FXMLLoader.load(getClass().getResource("RegisterFormFXML.fxml"));
@@ -68,6 +69,7 @@ public class LogInFormFXMLController implements Initializable {
         Scene scene = new Scene(root);
         regStage.setScene(scene);
         regStage.show();
+        
     }
 
     @Override

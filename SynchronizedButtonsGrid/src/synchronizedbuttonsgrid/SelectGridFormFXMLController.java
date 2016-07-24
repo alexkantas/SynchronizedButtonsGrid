@@ -19,21 +19,19 @@ package synchronizedbuttonsgrid;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -71,17 +69,18 @@ public class SelectGridFormFXMLController implements Initializable {
         });
 
     }
-    
+
     /**
-     * Creates a button in a AnchorPane  with appropriate color 
+     * Creates a button in a AnchorPane with appropriate color
      */
-    public class GridButton extends AnchorPane implements EventHandler<ActionEvent>{
+    public class GridButton extends AnchorPane implements EventHandler<ActionEvent> {
+
         /**
-         * 
-         * @param gridname The name of grid with shows in button
+         *
+         * @param gridname The name of grid and text in button
          */
-        public GridButton(String gridname){
-            Button btn =new Button(gridname);
+        public GridButton(String gridname) {
+            Button btn = new Button(gridname);
             btn.getStyleClass().add("gridbtn");
             btn.setOnAction(this);
             getChildren().add(btn);
