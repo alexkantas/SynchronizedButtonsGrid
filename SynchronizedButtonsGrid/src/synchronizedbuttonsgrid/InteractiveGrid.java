@@ -16,22 +16,16 @@
  */
 package synchronizedbuttonsgrid;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 
 /**
@@ -45,16 +39,29 @@ public class InteractiveGrid extends Stage {
     private final Button dltbtn = new Button("Delete Grid");
     private final GridPane buttonsGrid = new GridPane();
     private final BorderPane border = new BorderPane();
+    
     int i, column, row;
+    private Button btnn;
 
     public InteractiveGrid(int Rows, int Columns, String name) {
         BorderPane.setAlignment(gridnamelbl, Pos.CENTER);
         BorderPane.setMargin(gridnamelbl, new Insets(10));
-        
+
         BorderPane.setAlignment(dltbtn, Pos.CENTER_LEFT);
         BorderPane.setMargin(dltbtn, new Insets(10));
-        
-        BorderPane.setMargin(buttonsGrid, new Insets(10));
+
+        BorderPane.setMargin(buttonsGrid, new Insets(25));
+        for (int j = 0; j < Columns; j++) {
+            ColumnConstraints cc = new ColumnConstraints();
+            cc.setHgrow(Priority.ALWAYS);
+            buttonsGrid.getColumnConstraints().add(cc);
+        }
+
+        for (int j = 0; j < Rows; j++) {
+            RowConstraints rc = new RowConstraints();
+            rc.setVgrow(Priority.ALWAYS);
+            buttonsGrid.getRowConstraints().add(rc);
+        }
 
         gridnamelbl.setText(name);
         border.setTop(gridnamelbl);
@@ -66,7 +73,7 @@ public class InteractiveGrid extends Stage {
                 buttonsGrid.add(new GridButton("" + i++), column, row);
             }
         }
-        
+
         buttonsGrid.setHgap(2);
         buttonsGrid.setVgap(2);
         buttonsGrid.setAlignment(Pos.CENTER);
@@ -88,22 +95,28 @@ public class InteractiveGrid extends Stage {
             setMaxHeight(Double.MAX_VALUE);
             setMaxWidth(Double.MAX_VALUE);
             getStyleClass().add("gridButton");
-            
-            setOnMouseClicked(e->{
-                Button btn =(Button)e.getSource();
+
+            setOnMouseClicked(e -> {
+                Button btn = (Button) e.getSource();
+                String x1 = btn.getText();
+                System.out.println("You clicked button " + x1);
+            });
+            setOnMouseEntered(e -> {
+                Button btn = (Button) e.getSource();
                 String x = btn.getText();
-                System.out.println("You clicked button "+x);
-                    });
-            setOnMouseEntered(e->{
-                Button btn =(Button)e.getSource();
+                System.out.println("You entered in button " + x);
+            });
+            setOnMousePressed(e -> {
+                Button btn = (Button) e.getSource();
+                int foo = Integer.parseInt(btn.getText());
                 String x = btn.getText();
-                System.out.println("You entered in button "+x);
-                    });
-            setOnMousePressed(e->{
-                Button btn =(Button)e.getSource();
-                String x = btn.getText();
-                System.out.println("You pressing button "+x);
-                    });
+                System.out.println("You pressing button " + x);
+                btnn = (Button) buttonsGrid.getChildren().get(foo - 1);
+                btnn.setStyle("-fx-color: -fx-pressed-base;");
+            });
+            setOnMouseReleased(e -> {
+                btnn.setStyle("");
+            });
         }
     }
 }
