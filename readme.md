@@ -20,4 +20,4 @@ In this Project I want to use a  Synchronized Buttons Grid in EVERY front end:
 
 :sparkles:Under Developmemt:sparkles:
 
-For BackEnd it will use Firebase and maybe more in future
+The project for BackEnd it will use Firebase and maybe more in future
