@@ -1,6 +1,6 @@
 #Synchronized Buttons Grid
 
-##JavaFX Application 
+###JavaFX Application 
 
 :sparkles:Under Developmemt:sparkles:
 
